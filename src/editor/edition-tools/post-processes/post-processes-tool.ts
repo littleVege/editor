@@ -92,9 +92,11 @@ export default class PostProcessesTool extends AbstractEditionTool<Scene> {
             if (SceneManager.StandardRenderingPipeline.screenSpaceReflectionPostProcess) {
                 reflections.add(SceneManager.StandardRenderingPipeline.screenSpaceReflectionPostProcess, 'strength').name('Reflection Strength');
                 reflections.add(SceneManager.StandardRenderingPipeline.screenSpaceReflectionPostProcess, 'threshold').name('Reflection Threshold');
+                reflections.add(SceneManager.StandardRenderingPipeline.screenSpaceReflectionPostProcess, 'step').step(0.001).name('Step');
                 reflections.add(SceneManager.StandardRenderingPipeline.screenSpaceReflectionPostProcess, 'reflectionSpecularFalloffExponent').name('Specular Fall Off Exponent');
-                reflections.add(SceneManager.StandardRenderingPipeline.screenSpaceReflectionPostProcess, 'enableSmoothReflections').name('Enable Smoothing Reflections');
                 reflections.add(SceneManager.StandardRenderingPipeline.screenSpaceReflectionPostProcess, 'reflectionSamples').min(1).max(512).step(1).name('Reflection Samples');
+                reflections.add(SceneManager.StandardRenderingPipeline.screenSpaceReflectionPostProcess, 'enableSmoothReflections').name('Enable Smoothing Reflections');
+                reflections.add(SceneManager.StandardRenderingPipeline.screenSpaceReflectionPostProcess, 'smoothSteps').min(1).max(32).name('Smooth steps');
                 reflections.add(SceneManager.StandardRenderingPipeline, 'screenSpaceReflectionBlurWidth').min(0).max(512).name('Reflection Blur Width');
             }
 
